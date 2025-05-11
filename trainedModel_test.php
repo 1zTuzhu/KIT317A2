@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);			//show any errors if there if any
+error_reporting(E_ALL);
 ini_set('display_errors', '1');
 header('Content-type: text/plain');
 require_once __DIR__ . '/vendor/autoload.php';
