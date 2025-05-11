@@ -19,6 +19,7 @@
 		
 		//insert prediction result into json
 		$temperature = floatval($entry->temp);
+		//normalize to 0-1
 		$normalized = [$temperature/100];
 		$label = $mlp->predict($normalized);
 		$entry -> label = $label;
