@@ -18,8 +18,7 @@ window.onload = function () {
 		axisY: {
 			title: "Temperature",
 			prefix: "",
-			suffix: " C",
-
+			
 				tickLength: 5,
 				tickColor: "DarkSlateBlue" ,
 				tickThickness: 1
@@ -43,7 +42,7 @@ window.onload = function () {
 				name: "Temperature",
 				showInLegend: true,
 				markerSize: 6,
-				yValueFormatString: "# C",
+				yValueFormatString: "0.0C",
 				dataPoints: tempData
 			}
 		]
@@ -83,7 +82,7 @@ window.onload = function () {
 					tempData.push({x: date_in, y: (currentValues.temp * 1.0),markerColor: pointColor
 					});	
 
-					if(tl > 60) {
+					if(tempData.length > 60) {
 				tempData.shift();
 			}
 		}
