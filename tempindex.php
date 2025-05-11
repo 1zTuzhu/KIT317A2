@@ -42,7 +42,7 @@ window.onload = function () {
 				axisYType: "secondary",
 				name: "Temperature",
 				showInLegend: true,
-				markerSize: 0,
+				markerSize: 6,
 				yValueFormatString: "# C",
 				dataPoints: tempData
 			}
@@ -75,8 +75,13 @@ window.onload = function () {
 				[hours, minutes, seconds] = timeValues.split(':');
 				date_in = new Date(+year, +month - 1, +day, +hours, +minutes, +seconds);
 				
-				if (tempData.length == 0 || date_in > tempData[tempData.length - 1].x){
-					tempData.push( {x: date_in, y: (currentValues.temp * 1.0)});			
+				if (tempData.length == 0 || date_in > tempData[tempData.length - 1].x){					
+					
+					// Check if the temp is a spike and set the color to red if it is
+					let pointColor = ( currentValues.label == 'spike') ? 'red' : null;
+					
+					tempData.push({x: date_in, y: (currentValues.temp * 1.0),markerColor: pointColor
+					});	
 
 					if(tl > 60) {
 				tempData.shift();

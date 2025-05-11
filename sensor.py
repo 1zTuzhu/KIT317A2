@@ -49,16 +49,18 @@ while True:
     #set spike in 2 ways
     if error_mode == True:
         if first_spike_set == False:
-            spike = random.uniform(10,20)
-            if random.random() < 0.5:
+            spike = random.uniform(20,30)
+            #To marker: you can change the probability higher for more spikes, 0.5 should be good
+            if random.random() < 0.2:
                 spike = -spike
             temp += spike
             temp = round(temp,1)
             print("First spike set: " ,spike)
             first_spike_set = True
         elif random.random() < 0.2:
-            spike = random.uniform(10,20)
-            if random.random() < 0.5:
+            spike = random.uniform(20,30)
+            #To marker: you can change the probability higher for more spikes, 0.5 should be good
+            if random.random() < 0.2:
                 spike = -spike
             temp += spike
             temp = round(temp,1)
